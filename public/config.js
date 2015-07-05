@@ -6,7 +6,8 @@ angular.module('config', []).value('config', {
 	'chunkSize': 15000,
 	'chunksPerBlock': 64,
 	'peerConfig': {
-		host: 'peer.microhealthllc.com',
+		//host: 'peer.microhealthllc.com',
+        host: 'localhost',
 		path: '/signaling',
 		port: 9100,
 		key: 'reepio',
