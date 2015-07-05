@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" data-ng-app="mfile">
+<head>
+    <meta charset="UTF-8">
+    <base href="/"/>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/fonts/fontello/css/fontello.css"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>mFiles</title>
+    <meta name="description" content="Transfer and stream files to other clients via browser peer-to-peer." />
+
+    <meta name="DC.title" content="Share files directly from your browser: https://files.microhealthllc.com #filesharing #WebRTC #P2P">
+    <meta name="DC.creator" content="@IoReep">
+
+    <script>
+        window['app_env'] = 'dev';
+    </script>
+
+    <script src="assets/bower_components/jquery/dist/jquery.js"></script>
+    <script src="assets/bower_components/angular/angular.js"></script>
+    <script src="assets/bower_components/angular-route/angular-route.js"></script>
+    <script src="assets/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="assets/bower_components/angulartics/src/angulartics.js"></script>
+    <script src="assets/bower_components/angulartics/src/angulartics-piwik.js"></script>
+    <script src="assets/bower_components/reepio-paste-to-clipboard/bin/js/swfobject.js"></script>
+    <script src="assets/bower_components/threejs/build/three.js"></script>
+    <script src="assets/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="assets/js/ui-bootstrap-0.11.0.js"></script>
+    <script src="assets/js/paste.js/paste.js"></script>
+    <script src="assets/js/mfile.js"></script>
+
+    <script src="modules/common/filters/fileFilters.js"></script>
+    <script src="modules/common/filters/stringFilters.js"></script>
+
+    <script src="modules/common/directives/fileIcon.js"></script>
+    <script src="modules/common/directives/progressBar.js"></script>
+
+    <script src="modules/common/module.js"></script>
+    <script src="modules/common/crypto.js"></script>
+    <script src="modules/common/notifications.js"></script>
+    <script src="modules/common/randomService.js"></script>
+    <script src="modules/common/detectCrawlerService.js"></script>
+    <script src="modules/common/dialog.js"></script>
+    <script src="modules/common/loading.js"></script>
+    <script src="modules/common/converterService.js"></script>
+
+    <script src="modules/clipboard/module.js"></script>
+    <script src="modules/clipboard/clipboardDirective.js"></script>
+
+    <script src="modules/peering/peeringService.js"></script>
+
+    <script src="modules/download/module.js"></script>
+    <script src="modules/download/downloadController.js"></script>
+    <script src="modules/download/downloadService.js"></script>
+    <script src="modules/download/loadingIndicatorDirective.js"></script>
+    <script src="modules/download/storageService.js"></script>
+
+    <script src="modules/upload/module.js"></script>
+    <script src="modules/upload/uploadController.js"></script>
+    <script src="modules/upload/uploadService.js"></script>
+    <script src="modules/upload/dropZoneDirective.js"></script>
+
+    <script src="modules/static/module.js"></script>
+    <script src="modules/static/static.js"></script>
+    <script src="modules/static/slidingFileDirective.js"></script>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+
+    <link rel="stylesheet" href="assets/css/theme.css"/>
+    <link rel="shortcut icon" type="image/ico" href="assets/images/favicon.ico" />
+</head>
+<body>
+    <div class="container">
+        <div class="loading-screen" data-ng-if=" ! running" data-ng-controller="LoadingCtrl">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-push-3">
+                        <div class="loading-screen-inner">
+                            mFile<span class="text-primary">Sharing</span> is loading
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-ng-controller="DialogController">
+            <div class="modal-dialog">
+                <div class="modal-content ">
+                    <div class="modal-body">
+                        <h4><strong data-ng-bind="title"></strong></h4>
+                        <p data-ng-bind="message"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar-right col-sm-3" data-ng-hide="getIsPageActive('/d') || ! downloadId || downloadError">
+            <a data-ng-href="#/d/{{ downloadId }}">
+                <div class="well well-sm">
+                    <span data-ng-bind="downloadService.file.name|maxLength:15"></span>
+                    <div data-p2m-progress-bar data-percent="downloadService.file.progress"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div data-ng-view onload="view_Load()" data-autoscroll="true"></div>
+    </body>
+</html>
