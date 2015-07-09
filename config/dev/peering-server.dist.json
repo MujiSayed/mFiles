@@ -1,0 +1,15 @@
+{
+	"host": "127.0.0.1",
+	"port": 9100,
+	"path": "/signaling",
+	"statsInterval": 10000,
+
+	"ipLimit": 10,
+	"concurrentLimit": null,
+	"key": "reepio",
+
+   "ssl": true,
+    "sslKey": "/etc/nginx/ssl/microhealthllcD.key",
+    "sslCertificate": "/etc/nginx/ssl/ssl-unified2.crt",
+
+}
