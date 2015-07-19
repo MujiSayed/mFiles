@@ -6,11 +6,10 @@ angular.module('config', []).value('config', {
 	'chunkSize': 15000,
 	'chunksPerBlock': 64,
 	'peerConfig': {
-		//host: 'peer.microhealthllc.com',
-        host: 'localhost',
+        host: window.location.hostname || 'peer.microhealthllc.com',
 		path: '/signaling',
 		port: 9100,
-		key: 'reepio',
+		key: 'mfiles',
 		config: {
 			iceServers: [
 				{url: "stun:1.1.1.1"},

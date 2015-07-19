@@ -6,7 +6,7 @@
 
 	"ipLimit": 10,
 	"concurrentLimit": null,
-	"key": "reepio",
+	"key": "mfiles",
 
    "ssl": true,
     "sslKey": "/etc/nginx/ssl/microhealthllcD.key",

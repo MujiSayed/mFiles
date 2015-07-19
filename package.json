@@ -45,7 +45,7 @@
     "protractor": "^1.1.1",
     "shelljs": "^0.2.6"
   },
-  "subdomain": "kodekraftwerk-webrtc",
+  "subdomain": "",
   "engines": {
     "node": "0.10.x"
   }

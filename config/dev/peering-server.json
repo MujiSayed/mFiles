@@ -6,9 +6,8 @@
 
 	"ipLimit": 10,
 	"concurrentLimit": null,
-	"key": "reepio",
-    "ssl": true,
+	"key": "mfiles",
+    "ssl": false,
     "sslKey": "config/dev/privatekey.pem",
     "sslCertificate": "config/dev/publickey.cer"
-
 }
