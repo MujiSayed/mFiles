@@ -13,7 +13,6 @@ peer.on('message', function(message) {
 });
 
 var mfiles = exec('http-server -a localhost -p 8001 -c-1', function(error, stdout, stderr) {
-    console.log('stdout: ', stdout);
     console.log('stderr: ', stderr);
     if (error !== null) {
         console.log('exec error: ', error);
