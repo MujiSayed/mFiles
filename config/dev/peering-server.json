@@ -8,6 +8,6 @@
 	"concurrentLimit": null,
 	"key": "mfiles",
     "ssl": false,
-    "sslKey": "config/dev/privatekey.pem",
-    "sslCertificate": "config/dev/publickey.cer"
+    "sslKey": "private.key",
+    "sslCertificate": "public.cer"
 }

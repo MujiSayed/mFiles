@@ -9,7 +9,7 @@
 	"key": "mfiles",
 
    "ssl": true,
-    "sslKey": "/etc/nginx/ssl/microhealthllcD.key",
-    "sslCertificate": "/etc/nginx/ssl/ssl-unified2.crt",
+    "sslKey": "private.key",
+    "sslCertificate": "public.cer",
 
 }
