@@ -39,6 +39,7 @@
     "start-prod": "http-server dist -a localhost -p 8001 -c-1",
     "update": "npm install && bower install",
     "start": "node main.js",
+    "prestart": "npm install",
     "test": "karma start karma.conf.js"
   },
   "author": "",
