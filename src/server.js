@@ -8,13 +8,14 @@ var peer = require('peer'),
 	logger = require('./logger'),
     fs = require('fs');
 
+
 loader.load('peering-server.json')
 	.done(function (config) {
 		var numConnections = 0,
 			concurrentLimit = config.concurrentLimit === null ? Number.MAX_VALUE : config.concurrentLimit;
 
         var opts = {
-            port: config.port,
+            port: config.peerServerPort,
             path: config.path,
             key: config.key,
             ip_limit: config.ipLimit,
