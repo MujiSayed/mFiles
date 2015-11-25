@@ -4,11 +4,26 @@ Your files are directly send to end user from your browser. mFiles use RTC techn
 
 #Uses
 1. Upload file by click on 'Add or drop file button'.
-2. Url will automaticall generate for this file to transfer.
-3. Copy generate url and sent it to  your users.
-4. You can set passwork in file.
-
-
+2. Url will automatically generate for this file to transfer.
+3. Copy generate url and sent it to end user.
+4. You can set password in file.
 
 #Note
-1. I you close the browser after upload files and before download, Then it will not transfer to end user because mFiles used browse to browser sharing.
+1. If you close the browser after upload files and before download, Then it will not transfer to end user because mFiles used browse to browser sharing.
+
+#License
+
+Copyright (C) 2015  MicroHealthLLC
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>
