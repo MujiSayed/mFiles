@@ -11,6 +11,12 @@ Your files are directly send to end user from your browser. mFiles use RTC techn
 #Note
 1. If you close the browser after upload files and before download, Then it will not transfer to end user because mFiles used browse to browser sharing.
 
+#Instellation
+1. We assumed you have already node.js environment, If not please click <a href="https://nodejs.org/download/">Here<a> download and install first.
+2. Pull project or simple download zipped project.
+3. Go into project directory and run command "sudo npm install" it will install all dependencies.
+4. To run project "sudo npm start"
+
 #License
 
 Copyright (C) 2015  MicroHealthLLC
