@@ -26,7 +26,7 @@ There is two setting file in project, You can edit these file as your's per uses
     > sslKey: File path of the ssl key.
     > sslCertificate: File path of the ssl certificate.
 
-<i>Other Options: </i>
+<i>Other Options: </i><br>
     > path<br>
     > statsInterval<br>
     > ipLimit<br>
@@ -38,7 +38,7 @@ There is two setting file in project, You can edit these file as your's per uses
         > port: default value is 9100, should be exact same value defined for peerServerPort in previous setting.<br>
         > path: default /signaling, should be exact same value defined for path in previous setting.<br>
         > key: default value is mfiles, should be exact same value defined for key in previous setting.<br>
-        
+
 #Note
 1. If you close the browser after upload files and before download, Then it will not transfer to end user because mFiles used browse to browser sharing.
 
