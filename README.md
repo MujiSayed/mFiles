@@ -1,6 +1,6 @@
 # mFiles
 
-mFiles ridiculously simple file sharing. With mFiles you can transfer files directly to another browser securely. Just point to a file you want to share.  Share the unique file link.  Keep your browser open until the file has been downloaded.  Your files will  be downloaded directly from your computer through the browser over SSL.  No data is stored on a server. Transfer occurs between you and the destination...peer to peer, browser to browser. mFiles use RTC technology to share file between browsers. Please click here <a href="http://www.webrtc.org/" /> know more about RTC technilogy.
+mFiles ridiculously simple file sharing. With mFiles you can transfer files directly to another browser securely. Just point to a file you want to share.  Share the unique file link.  Keep your browser open until the file has been downloaded.  Your files will  be downloaded directly from your computer through the browser over SSL.  No data is stored on a server. Transfer occurs between you and the destination...peer to peer, browser to browser. mFiles use RTC technology to share file between browsers. Please click here <a href="http://www.webrtc.org/"> know more about RTC technology </a>.
 
 #Uses
 1. Upload file by click on 'Add or drop file button'.
