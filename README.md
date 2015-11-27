@@ -16,7 +16,7 @@ Your files are directly send to end user from your browser. mFiles use RTC techn
 5. To start file transfer please visit http://localhost:8001/.
 
 #Setting
-There is two setting file in project, You can edit these file as your's per uses.
+There is two setting file in project, You can edit these file as your's per uses.<br>
 <b>1. /config/peering-server.json</b>
 
     > host: Default value is 127.0.0.1. You can set host name or ip address of server computer
@@ -27,17 +27,18 @@ There is two setting file in project, You can edit these file as your's per uses
     > sslCertificate: File path of the ssl certificate.
 
 <i>Other Options: </i>
-    > path
-    > statsInterval
-    > ipLimit
-    > concurrentLimit
+    > path<br>
+    > statsInterval<br>
+    > ipLimit<br>
+    > concurrentLimit<br>
 
-<b>2. public/config.js</b>
-    > peerConfig: peer server configuration setting, it's have following options.
-        > host: default value is current host name or ip. set peer server host.
-        > port: default value is 9100, should be exact same value defined for peerServerPort in previous setting.
-        > path: default /signaling, should be exact same value defined for path in previous setting.
-        > key: default value is mfiles, should be exact same value defined for key in previous setting.
+<b>2. public/config.js</b><br>
+    > peerConfig: peer server configuration setting, it's have following options.<br>
+        > host: default value is current host name or ip. set peer server host.<br>
+        > port: default value is 9100, should be exact same value defined for peerServerPort in previous setting.<br>
+        > path: default /signaling, should be exact same value defined for path in previous setting.<br>
+        > key: default value is mfiles, should be exact same value defined for key in previous setting.<br>
+        
 #Note
 1. If you close the browser after upload files and before download, Then it will not transfer to end user because mFiles used browse to browser sharing.
 
