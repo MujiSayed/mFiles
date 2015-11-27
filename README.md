@@ -14,11 +14,11 @@ Your files are directly send to end user from your browser. mFiles use RTC techn
 3. To run project run command "sudo npm start". Required dependencies will automatically download. If it's failed to download or install dependencies due to network failure or others, please try again with "sudo npm start".
 4. After successfull start Client server will listen on post 8001 and peer server listen on port 9100.
 5. To start file transfer please visit http://localhost:8001/.
+6. If you close the browser after upload files and before download, Then it will not transfer to end user because mFiles used browse to browser sharing.
 
 #Setting
 There is two setting file in project, You can edit these file as your's per uses.<br>
 <b>1. /config/peering-server.json</b>
-
     > host: Default value is 127.0.0.1. You can set host name or ip address of server computer
     > sitePort: Default port number is 8001. Set web port number for access website.
     > peerServerPort: Default port number is 9100. Peer server port number on which peer server will able to listen.
@@ -38,9 +38,6 @@ There is two setting file in project, You can edit these file as your's per uses
         > port: default value is 9100, should be exact same value defined for peerServerPort in previous setting.<br>
         > path: default /signaling, should be exact same value defined for path in previous setting.<br>
         > key: default value is mfiles, should be exact same value defined for key in previous setting.<br>
-
-#Note
-1. If you close the browser after upload files and before download, Then it will not transfer to end user because mFiles used browse to browser sharing.
 
 #License
 
