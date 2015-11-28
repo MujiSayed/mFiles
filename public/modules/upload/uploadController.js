@@ -120,6 +120,11 @@
                             $scope.input.password = file.password;
 
                             $scope.ok = function() {
+                                if($scope.input.password == '') {
+                                    $scope.passwordError = "Password can not be empty.";
+                                    $scope.submitted = true;
+                                    return;
+                                }
                                 $scope.$close($scope.input.password);
                             };
 
@@ -135,6 +140,8 @@
 
                     modalInstance.result
 						.then(function (password) {
+                            $scope.passwordError = '';
+                            $scope.submitted = false;
 							uploadService.setPasswordForFile(file.fileId, password);
 							file.password = password;
 						})

@@ -7117,3 +7117,12 @@ a.tile:hover {
     margin-right: 0;
   }
 }
+
+.error-input-password {
+  border:indianred solid 1px !important;
+}
+.error-text-password {
+  color: indianred;
+  font-size: 12px;
+  font-weight: bold;
+}
