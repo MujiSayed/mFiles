@@ -131,6 +131,11 @@
                             $scope.close = function() {
                                 $scope.$dismiss('cancel');
                             };
+                            $scope.removePassword = function() {
+                                uploadService.setPasswordForFile(file.fileId, '');
+                                file.password = '';
+                                $scope.$dismiss('cancel');
+                            }
 
 							$scope.clear = function() {
 								$scope.$dismiss('cancel');
@@ -146,8 +151,7 @@
 							file.password = password;
 						})
 						.catch(function () {
-							uploadService.setPasswordForFile(file.fileId, '');
-							file.password = '';
+                            //console.log("here");
 						});
                 };
 
