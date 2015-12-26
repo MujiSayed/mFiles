@@ -1,118 +1,160 @@
 <div class="container">
-    <div id="page-upload">
-        <section class="row section section-page" data-ng-hide="getIsFileDropped()" id="page-upload-intro">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h1>mFiles<span class="text-primary"></span> - <span class="text-nowrap">ridiculously simple</span> file sharing</h1>
-                    <p class="lead">
-                        With mFiles you can transfer files directly to another browser securely.
-                        Just point to a file you want to share.  Share the unique file link.  Keep
-                        your browser open until the file has been downloaded.  Your files will 
-			be downloaded directly from your computer through the browser over SSL. 
-			No data is stored on a server. Transfer occurs between you and the destination...peer to peer, browser to browser.
 
-                    <br><br>
-                        1).  Click Add.   2). Send the link.   3). Keep your Browser open and share.
-                    </p>
+    <style>
+        #navcontainer ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            text-align: center;
+        }
+
+        #navcontainer ul li { display: inline; }
+
+        #navcontainer ul li a {
+            text-decoration: none;
+            padding: .2em 1em;
+            color: #fff;
+            background-color: #4B5B88;
+        }
+
+        #navcontainer ul li a:hover {
+            color: #fff;
+            background-color: #7481A6;
+        }
+        #navcontainer .active {
+            background-color: #7481A6;
+        }
+    </style>
+
+    <div id="navcontainer" data-ng-init="isHome = true;">
+        <ul class="pull-right">
+            <li data-ng-click="isHome = true;"><a ng-class="{'active':isHome}" href="javascript:;">Home</a></li>
+            <li data-ng-click="isHome = false;"><a ng-class="{'active':!isHome}" href="javascript:;">About</a></li>
+        </ul>
+    </div>
+    <div ng-show="!isHome">
+        There is about
+    </div>
+    <div ng-show="isHome">
+        <div id="page-upload">
+            <section class="row section section-page" data-ng-hide="getIsFileDropped()" id="page-upload-intro">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>mFiles<span class="text-primary"></span> - <span class="text-nowrap">ridiculously simple</span> file sharing</h1>
+                        <p class="lead">
+                            With mFiles you can transfer files directly to another browser securely.
+                            Just point to a file you want to share.  Share the unique file link.  Keep
+                            your browser open until the file has been downloaded.  Your files will
+                            be downloaded directly from your computer through the browser over SSL.
+                            No data is stored on a server. Transfer occurs between you and the destination...peer to peer, browser to browser.
+
+                            <br><br>
+                            1).  Click Add.   2). Send the link.   3). Keep your Browser open and share.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div id="drop-box" class="ng-hide" data-p2m-drop-zone data-max-files="8" data-files="fileModel.files" data-ng-animate data-ng-class="{ 'hasFiles': fileModel.files.length > 0}">
+                <div>
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Drop files here...
                 </div>
             </div>
-        </section>
 
-        <div id="drop-box" class="ng-hide" data-p2m-drop-zone data-max-files="8" data-files="fileModel.files" data-ng-animate data-ng-class="{ 'hasFiles': fileModel.files.length > 0}">
-            <div>
-                <span class="glyphicon glyphicon-plus"></span>
-                Drop files here...
-            </div>
-        </div>
+            <div data-ng-show="getIsFileDropped()">
+                <p class="lead">
+                    Copy the link below and send it to a friend to start a peer-to-peer file transfer. Do not close
+                    this browser tab to enable peer-to-peer file transfer.
+                </p>
 
-        <div data-ng-show="getIsFileDropped()">
-            <p class="lead">
-                Copy the link below and send it to a friend to start a peer-to-peer file transfer. Do not close
-                this browser tab to enable peer-to-peer file transfer.
-            </p>
+                <div class="upload-queue">
+                    <div class="upload-queue-item" data-ng-repeat="file in fileModel.files" data-ng-animate>
 
-            <div class="upload-queue">
-                <div class="upload-queue-item" data-ng-repeat="file in fileModel.files" data-ng-animate>
-
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <div class="bg-primary">
-                                <div data-p2m-file-icon data-file-type="file.rawFile.type" class="file-icon-small"></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-10">
-                            <button type="button" class="close pull-right" data-ng-click="removeFile(file.uniqueUrl)">
-                                &times;
-                                <span class="sr-only">Close upload</span>
-                            </button>
-
-                            <div class="form-group">
-                                <div class="file-name">
-                                    <h4 data-ng-attr-title="{{ file.rawFile.name }}" class="pull-left" data-ng-bind="file.rawFile.name"></h4>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="bg-primary">
+                                    <div data-p2m-file-icon data-file-type="file.rawFile.type" class="file-icon-small"></div>
                                 </div>
-                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-sm-10">
+                                <button type="button" class="close pull-right" data-ng-click="removeFile(file.uniqueUrl)">
+                                    &times;
+                                    <span class="sr-only">Close upload</span>
+                                </button>
 
-                                <input type="text" class="form-control" placeholder="Generating Url..." data-ng-value="file.uniqueUrl" onclick="select()" readonly>
+                                <div class="form-group">
+                                    <div class="file-name">
+                                        <h4 data-ng-attr-title="{{ file.rawFile.name }}" class="pull-left" data-ng-bind="file.rawFile.name"></h4>
+                                    </div>
+                                    <div class="clearfix"></div>
 
-                                <div data-reepio-clipboard data-on-copied="onClipboardCopied" data-clipboard-data="file.uniqueUrl">
-                                    <div class="btn-clipboard-label"
-                                         data-toggle="clipboard-tooltip"
-                                         data-placement="bottom"
-                                         data-container=".upload-queue-item"
-                                         title="Copied to Clipboard!">
-                                        <span class="fa fa-clipboard"></span>
+                                    <input type="text" class="form-control" placeholder="Generating Url..." data-ng-value="file.uniqueUrl" onclick="select()" readonly>
+
+                                    <div data-reepio-clipboard data-on-copied="onClipboardCopied" data-clipboard-data="file.uniqueUrl">
+                                        <div class="btn-clipboard-label"
+                                             data-toggle="clipboard-tooltip"
+                                             data-placement="bottom"
+                                             data-container=".upload-queue-item"
+                                             title="Copied to Clipboard!">
+                                            <span class="fa fa-clipboard"></span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <ul class="list-inline text-muted">
-                                <li>
-                                    <span data-ng-bind="file.rawFile.size|humanFileSize"></span>
-                                </li>
-                                <li data-ng-attr-title="Downloaded {{ file.totalDownloads }} times">
-                                    <span class="fa fa-download"></span>
-                                    <span data-ng-bind="file.totalDownloads"></span>x
-                                </li>
-                                <li>
-                                    <a href="javascript:;" data-ng-click="lockFile(file)">
-                                        <span class="fa" data-ng-class="{'fa-lock': file.password, 'fa-unlock': ! file.password }"></span>
-                                        <span data-ng-hide="file.password">No Password</span>
+                                <ul class="list-inline text-muted">
+                                    <li>
+                                        <span data-ng-bind="file.rawFile.size|humanFileSize"></span>
+                                    </li>
+                                    <li data-ng-attr-title="Downloaded {{ file.totalDownloads }} times">
+                                        <span class="fa fa-download"></span>
+                                        <span data-ng-bind="file.totalDownloads"></span>x
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;" data-ng-click="lockFile(file)">
+                                            <span class="fa" data-ng-class="{'fa-lock': file.password, 'fa-unlock': ! file.password }"></span>
+                                            <span data-ng-hide="file.password">No Password</span>
                                         <span data-ng-show="file.password">
                                             Password: <span data-ng-bind="file.password|limitTo:10"></span>
                                             <span data-ng-show="file.password.length > 10">...</span>
                                         </span>
-                                    </a>
-                                </li>
-                            </ul>
+                                        </a>
+                                    </li>
+                                </ul>
 
-                            <div class="clearfix"></div>
+                                <div class="clearfix"></div>
 
-                            <div class="upload-client-list">
-                                <div class="upload-client-list-item" data-ng-repeat="client in file.clients|limitTo:6">
-                                    <div class="tile tile-small" data-ng-animate>
-                                        <i class="fa fa-user"></i>
-                                        <div data-p2m-progress-bar data-percent="client.progress"></div>
+                                <div class="upload-client-list">
+                                    <div class="upload-client-list-item" data-ng-repeat="client in file.clients|limitTo:6">
+                                        <div class="tile tile-small" data-ng-animate>
+                                            <i class="fa fa-user"></i>
+                                            <div data-p2m-progress-bar data-percent="client.progress"></div>
+                                        </div>
+                                        <small><span data-ng-bind="client.speed|humanFileSize:0"></span>/s</small>
                                     </div>
-                                    <small><span data-ng-bind="client.speed|humanFileSize:0"></span>/s</small>
-                                </div>
-                                <div class="text-muted" data-ng-show="file.clients.length > 6">
-                                    ... <span data-ng-bind="file.clients.length - 6"></span> more
+                                    <div class="text-muted" data-ng-show="file.clients.length > 6">
+                                        ... <span data-ng-bind="file.clients.length - 6"></span> more
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-sm-12">
-                <button class="button1 col-sm-12" data-ng-click="addFile()" id="btn-upload">
-                    <i class="glyphicon glyphicon-plus"></i>
-                    Add or drop files...
-                </button>
-                <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button class="button1 col-sm-12" data-ng-click="addFile()" id="btn-upload">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        Add or drop files...
+                    </button>
+                    <div class="clearfix"></div>
+                </div>
             </div>
         </div>
     </div>
+
+
+
+
 </div>
