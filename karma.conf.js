@@ -17,7 +17,11 @@ module.exports = function (config) {
             'public/modules/**/*.js',
             'public/config.js',
             'public/app.js',
-            'tests/**/*_test.js'
+            'tests/**/crypto_test.js',
+            'tests/**/detectCrawlerService_test.js',
+            'tests/**/randomService_test.js',
+            'tests/**/downloadController_test.js',
+            'tests/**/peeringService_test.js'
         ],
 
         autoWatch: true,
@@ -27,7 +31,7 @@ module.exports = function (config) {
         browsers: ['PhantomJS'],
 
         plugins: [
-                        'karma-phantomjs-launcher',
+            'karma-phantomjs-launcher',
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-ie-launcher',

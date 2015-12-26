@@ -25,9 +25,8 @@
     describe('peeringService tests', function () {
 
         beforeEach(function () {
-            module('peertome');
+            module('mfile');
         });
-
         describe('peeringService.getPeer() service unavailable tests', function () {
             var peeringService, config;
 
@@ -44,7 +43,6 @@
                     function (err) {
                         expect(err).toBeDefined();
                     });
-
             }));
 
         });

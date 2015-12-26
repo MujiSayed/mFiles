@@ -2,7 +2,7 @@
 
 describe('download module tests', function () {
     beforeEach(function () {
-        module('peertome');
+        module('mfile');
     });
 
     var ctrl, scope;
