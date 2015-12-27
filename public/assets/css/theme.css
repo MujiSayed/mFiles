@@ -1157,7 +1157,7 @@ mark,
   text-transform: capitalize;
 }
 .text-muted {
-  color: #707070;
+  color: #192855;
 }
 .text-primary {
   color: #bd2222;
@@ -2365,13 +2365,13 @@ output {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #ffffff;
-  background-color: #0d0d0d;
+  color: #192855;
+  background-color: #f2f2f2;
   background-image: none;
-  border: 1px solid #ffffff;
+  border: 1px solid #e4eaf9;
   border-radius: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-box-shadow: inset 0 1px 1px #e4eaf9;
+  box-shadow: inset 0 1px 1px #e4eaf9;
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -6484,8 +6484,8 @@ a.navbar-brand .beta-badge:focus {
 .file-icon.file-icon-default,
 .file-icon.file-icon-small,
 .file-icon.file-icon-large {
-  color: #fff;
-  background-color: #bd2222;
+  color: #e4eaf9;
+  background-color: #192855;
   font-size: 36px;
   text-align: center;
 }
@@ -6845,13 +6845,12 @@ a#page-incompatible a:hover {
 ---------------------------- */
 .upload-queue {
     margin: 33px 0 30px;
-    background-color: #f2f2f2;
+    background-color: #e4eaf9;
     padding: 40px 40px 40px 40px;
 }
 .upload-queue .upload-queue-item {
   padding: 20px;
-  background: #161616;
-  border-bottom: 1px solid #333333;
+  background: #f2f2f2;
 }
 .upload-queue .upload-queue-item:last-child {
   border-bottom: 0;
@@ -6901,11 +6900,11 @@ a#page-incompatible a:hover {
   font-weight: 700;
 }
 .upload-queue input[readonly] {
-  background: #0d0d0d;
+  background: #f2f2f2;
   cursor: pointer;
 }
 .upload-queue h4 {
-  color: #a3a3a3;
+  color: #192855;
 }
 .upload-queue .form-group {
   margin-bottom: 5px;
@@ -7051,7 +7050,7 @@ a.tile:hover {
   width: 100%;
   padding: 80px 60px;
   margin: 0;
-  background: #f2f2f2;
+  background: #e4eaf9;
   margin-bottom: 1px;
 }
 .section p,
