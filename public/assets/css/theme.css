@@ -6525,6 +6525,7 @@ a.lock-file {
 .error-page {
   text-align: center;
 }
+
 #page-upload .file-name,
 #page-download .file-name {
   overflow: hidden;
@@ -6843,7 +6844,9 @@ a#page-incompatible a:hover {
 /** Upload Queue
 ---------------------------- */
 .upload-queue {
-  margin: 30px 0 30px;
+    margin: 33px 0 30px;
+    background-color: #f2f2f2;
+    padding: 40px 40px 40px 40px;
 }
 .upload-queue .upload-queue-item {
   padding: 20px;
