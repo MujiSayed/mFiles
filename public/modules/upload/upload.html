@@ -27,34 +27,33 @@
     </style>
 
     <div id="navcontainer" data-ng-init="isHome = true;">
+        <span class="pull-left" style="font-size: 25px;font-weight: 500; color: #fff">mFiles</span>
         <ul class="pull-right">
             <li data-ng-click="isHome = true;"><a ng-class="{'active':isHome}" href="javascript:;">Home</a></li>
             <li data-ng-click="isHome = false;"><a ng-class="{'active':!isHome}" href="javascript:;">About</a></li>
         </ul>
     </div>
     <div ng-show="!isHome">
-        There is about
+        <section class="row section section-page" data-ng-hide="getIsFileDropped()" id="page-upload-intro">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>mFiles<span class="text-primary"></span> - <span class="text-nowrap">ridiculously simple</span> file sharing</h1>
+                    <p class="lead">
+                        With mFiles you can transfer files directly to another browser securely.
+                        Just point to a file you want to share.  Share the unique file link.  Keep
+                        your browser open until the file has been downloaded.  Your files will
+                        be downloaded directly from your computer through the browser over SSL.
+                        No data is stored on a server. Transfer occurs between you and the destination...peer to peer, browser to browser.
+
+                        <br><br>
+                        1).  Click Add.   2). Send the link.   3). Keep your Browser open and share.
+                    </p>
+                </div>
+            </div>
+        </section>
     </div>
     <div ng-show="isHome">
         <div id="page-upload">
-            <section class="row section section-page" data-ng-hide="getIsFileDropped()" id="page-upload-intro">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h1>mFiles<span class="text-primary"></span> - <span class="text-nowrap">ridiculously simple</span> file sharing</h1>
-                        <p class="lead">
-                            With mFiles you can transfer files directly to another browser securely.
-                            Just point to a file you want to share.  Share the unique file link.  Keep
-                            your browser open until the file has been downloaded.  Your files will
-                            be downloaded directly from your computer through the browser over SSL.
-                            No data is stored on a server. Transfer occurs between you and the destination...peer to peer, browser to browser.
-
-                            <br><br>
-                            1).  Click Add.   2). Send the link.   3). Keep your Browser open and share.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
             <div id="drop-box" class="ng-hide" data-p2m-drop-zone data-max-files="8" data-files="fileModel.files" data-ng-animate data-ng-class="{ 'hasFiles': fileModel.files.length > 0}">
                 <div>
                     <span class="glyphicon glyphicon-plus"></span>
