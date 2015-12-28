@@ -7132,3 +7132,15 @@ a.tile:hover {
   font-size: 12px;
   font-weight: bold;
 }
+
+.share-checkbox {
+  height: 12px;
+  width: 12px;
+  border: 1px solid #192855;
+}
+.share-checkbox-selected {
+  height: 12px;
+  width: 12px;
+  background: #5aa552;
+  border: 1px solid #192855;
+}

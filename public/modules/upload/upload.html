@@ -118,7 +118,10 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <input type="checkbox"> Share
+                                        <div>
+                                            <div data-ng-click="file.isShare = !file.isShare;" style="display: inline-block;" data-ng-class="{'share-checkbox-selected':file.isShare, 'share-checkbox':!file.isShare}"></div>
+                                            <div style="display: inline-block;">Share</div>
+                                        </div>
                                     </li>
                                 </ul>
 
