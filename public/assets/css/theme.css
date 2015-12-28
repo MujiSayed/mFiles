@@ -6875,7 +6875,7 @@ a#page-incompatible a:hover {
 .upload-queue ul li {
   float: left;
   list-style: none;
-  margin-right: 60px;
+  margin-right: 50px;
 }
 .upload-queue .upload-client-list-item {
   float: left;
