@@ -6660,17 +6660,19 @@ a.lock-file {
     }
 }
 .button1 {
-    background: rgba(0, 0, 0, 0) linear-gradient(#686a6f, #000000 50%,
-    #000000 51%, #686a6f) repeat scroll 0 0;
-    border-radius: 15px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) inset;
-    color: white;
-    font: 25px/70px verdana,arial,sans-serif;
+    background: #5aa552;
+    color: #e4eaf9;
+    font-size: 20px;
+    font-weight: bolder;
     text-align: center;
     width: 100%;
+    padding: 10px;
+}
+.button-area{
+    margin-top: 50px;
 }
 .button1:hover {
-    background: #666 none repeat scroll 0 0;
+    background: #4b5b88 none repeat scroll 0 0;
     cursor: pointer;
 }
 @media (max-height: 590px) {
