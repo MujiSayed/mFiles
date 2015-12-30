@@ -7223,7 +7223,7 @@ a.tile:hover {
   }
   .upload-queue .upload-queue-item .list-inline li {
     margin-right: 0px;
-    font-size: 12px;
+    font-size: 11px;
   }
   #page-upload-intro {
     margin-top: 27px;
@@ -7233,5 +7233,27 @@ a.tile:hover {
   }
   #page-download .file-icon.file-icon-small {
     font-size: 25px;
+  }
+  .close {
+    margin-top: -40px;
+  }
+}
+
+@media(min-width: 351px) and (max-width: 400px) {
+  .brand-logo img{
+    width: 225px;
+  }
+  .file-icon.file-icon-small {
+    width: 12%;
+    margin-bottom: 7px;
+  }
+  .upload-queue {
+    margin: 31px 0 0px;
+    background-color: #e4eaf9;
+    padding: 15px 15px 15px 15px;
+  }
+  .upload-queue .upload-queue-item .list-inline li {
+    margin-right: 4px;
+    font-size: 14px;
   }
 }
