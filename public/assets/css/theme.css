@@ -7246,6 +7246,7 @@ a.tile:hover {
   .file-icon.file-icon-small {
     width: 12%;
     margin-bottom: 7px;
+    font-size: 25px;
   }
   .upload-queue {
     margin: 31px 0 0px;
@@ -7255,5 +7256,11 @@ a.tile:hover {
   .upload-queue .upload-queue-item .list-inline li {
     margin-right: 4px;
     font-size: 14px;
+  }
+  .button-area {
+    margin-top: 0px;
+  }
+  #page-upload {
+    margin-top: 30px;
   }
 }
