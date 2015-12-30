@@ -7231,4 +7231,7 @@ a.tile:hover {
   #page-upload-intro p {
     margin: 15px 0 10px;
   }
+  #page-download .file-icon.file-icon-small {
+    font-size: 25px;
+  }
 }
