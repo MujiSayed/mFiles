@@ -7293,3 +7293,61 @@ a.tile:hover {
     margin-top: 31px;
   }
 }
+
+@media(min-width: 501px) and (max-width: 600px) {
+  .brand-logo img{
+    width: 275px;
+  }
+  .file-icon.file-icon-small {
+    width: 12%;
+    margin-bottom: 7px;
+    font-size: 32px;
+  }
+  .upload-queue {
+    margin: 31px 0 0px;
+    background-color: #e4eaf9;
+    padding: 20px 20px 20px 20px;
+  }
+  .upload-queue .upload-queue-item .list-inline li {
+    margin-right: 4px;
+    font-size: 15px;
+  }
+  .button-area {
+    margin-top: 0px;
+  }
+  #page-upload {
+    margin-top: 30px;
+  }
+  #page-upload-intro {
+    margin-top: 31px;
+  }
+}
+
+@media(min-width: 601px) and (max-width: 700px) {
+  .brand-logo img{
+    width: 275px;
+  }
+  .file-icon.file-icon-small {
+    width: 12%;
+    margin-bottom: 7px;
+    font-size: 35px;
+  }
+  .upload-queue {
+    margin: 31px 0 0px;
+    background-color: #e4eaf9;
+    padding: 20px 20px 20px 20px;
+  }
+  .upload-queue .upload-queue-item .list-inline li {
+    margin-right: 42px;
+    font-size: 18px;
+  }
+  .button-area {
+    margin-top: 0px;
+  }
+  #page-upload {
+    margin-top: 30px;
+  }
+  #page-upload-intro {
+    margin-top: 31px;
+  }
+}
