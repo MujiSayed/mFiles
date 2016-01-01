@@ -7186,7 +7186,7 @@ a.tile:hover {
   line-height: 1em;
 }
 
-@media(max-width: 350px) {
+@media(max-width: 320px) {
   #page-upload {
     margin-top: 62px;
   }
@@ -7237,6 +7237,59 @@ a.tile:hover {
   .close {
     margin-top: -40px;
   }
+}
+
+@media (min-width: 321px) and (max-width: 350px) {
+    #page-upload {
+        margin-top: 62px;
+    }
+    #navcontainer ul li a {
+        padding: 0.6em 1.5em;
+    }
+
+    #navcontainer span {
+        font-size: 20px;
+        font-weight: 500;
+        color: #f2f2f2;
+        line-height: 1em;
+    }
+    .brand-logo img{
+        width: 200px;
+    }
+    #page-upload {
+        margin-top: 27px;
+    }
+    .upload-queue {
+        margin: 27px 0 0px;
+        background-color: #e4eaf9;
+        padding: 15px 15px 15px 15px;
+    }
+    .button-area {
+        margin-top: 0px;
+    }
+    .file-icon.file-icon-small {
+        width: 12%;
+        margin-bottom: 7px;
+    }
+    h4, .h4 {
+        font-size: 12px;
+    }
+    .upload-queue .upload-queue-item .list-inline li {
+        margin-right: 0px;
+        font-size: 11px;
+    }
+    #page-upload-intro {
+        margin-top: 27px;
+    }
+    #page-upload-intro p {
+        margin: 15px 0 10px;
+    }
+    #page-download .file-icon.file-icon-small {
+        font-size: 25px;
+    }
+    .close {
+        margin-top: -40px;
+    }
 }
 
 @media(min-width: 351px) and (max-width: 400px) {
@@ -7349,5 +7402,8 @@ a.tile:hover {
   }
   #page-upload-intro {
     margin-top: 31px;
+  }
+  .close {
+    margin-top: -65px;
   }
 }
