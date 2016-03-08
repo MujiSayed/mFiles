@@ -110,6 +110,58 @@
                     }
                 };
 
+                $scope.shareFiles = function() {
+                    var files = angular.copy($scope.fileModel.files);
+                    if(!files || files.length === 0) {
+                        return alert("Please upload at least one file to share via email.");
+                    }
+                    var filesToShare = [];
+                    for(var i= 0, l = files.length; i <l ; i++) {
+                        if(files[i].isShare) filesToShare.push(files[i]);
+                    }
+
+                    if(filesToShare.length === 0) return alert("Please choose at least one link to share via email.");
+
+                    var modalInstance = $modal.open({
+                        templateUrl: 'modules/upload/modals/sharefile.html',
+                        controller: ['$scope', function($scope) {
+                            console.log(filesToShare);
+
+                            $scope.initEmailInput = function(){
+                                $("#input-email").tagit();
+                            }
+                            var emailBody = "";
+//                            for(var i= 0, l=filesToShare.length; i<l;i++) {
+//
+//                            }
+
+                            $scope.send = function() {
+                                console.log("ok", $("#input-email").val());
+                            };
+                            $scope.close = function() {
+                                console.log("close");
+                                $scope.$dismiss('cancel');
+                            };
+                            $scope.clear = function() {
+                                console.log("clear");
+                                $scope.$dismiss('cancel');
+                            };
+                        }]
+                    });
+
+                    modalInstance.result
+                        .then(function (password) {
+                            $scope.passwordError = '';
+                            $scope.submitted = false;
+                            uploadService.setPasswordForFile(file.fileId, password);
+                            file.password = password;
+                        })
+                        .catch(function () {
+                            //console.log("here");
+                        });
+
+                }
+
                 $scope.lockFile = function(file) {
                     $scope.modalDialogFile = file;
 

@@ -1,0 +1,22 @@
+<form data-ng-submit="send()">
+    <div class="modal-header">
+        <button type="button" class="close" data-ng-click="close()">
+            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title">Send file via email</h4>
+    </div>
+    <div class="modal-body">
+        <p>Enter email here. <br> You can enter one or more email address.</p>
+
+        <form role="form">
+            <div class="form-group">
+                <input data-ng-init="initEmailInput()" type="text" id="input-email" class="form-control" data-ng-class="{'error-input-password': !input.emails && submitted}" placeholder="Enter email" data-ng-model="input.emails" autofocus>
+            </div>
+            <p ng-show="!input.email && submitted" class="error-text-password">{{inputEmailErr}}</p>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-ng-click="removePassword()">Cancel</button>
+        <button type="submit" class="btn btn-primary" data-ng-click="send()">Send</button>
+    </div>
+</form>
