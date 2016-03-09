@@ -113,19 +113,22 @@
                 $scope.shareFiles = function() {
                     var files = angular.copy($scope.fileModel.files);
                     if(!files || files.length === 0) {
-                        return alert("Please upload at least one file to share via email.");
+
+                        return $rootScope.showDialog("Upload file", "Please upload at least one file to share via email.");
                     }
                     var filesToShare = [];
                     for(var i= 0, l = files.length; i <l ; i++) {
                         if(files[i].isShare) filesToShare.push(files[i]);
                     }
 
-                    if(filesToShare.length === 0) return alert("Please choose at least one link to share via email.");
+                    if(filesToShare.length === 0) return $rootScope.showDialog("No link chosen to share", "Please choose at least one link to share via email.");
 
                     var modalInstance = $modal.open({
                         templateUrl: 'modules/upload/modals/sharefile.html',
+                        size:'lg',
                         controller: ['$scope', function($scope) {
-                            console.log(filesToShare);
+                            $scope.filesToShare = filesToShare;
+                            $scope.email = {};
 
                             $scope.initEmailInput = function(){
                                 $("#input-email").tagit();
@@ -134,9 +137,37 @@
 //                            for(var i= 0, l=filesToShare.length; i<l;i++) {
 //
 //                            }
-
+                            $scope.inputEmailErr = "";
+                            function validateEmail(email) {
+                                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                                return re.test(email);
+                            }
                             $scope.send = function() {
-                                console.log("ok", $("#input-email").val());
+                                $scope.submitted = true;
+                                var error = false;
+                                if(!$scope.email.emails){
+                                    $scope.inputEmailErr = "Please enter atleast one email";
+                                    var error = true;
+                                } else {
+                                    var emails = $scope.email.emails.split(',');
+                                    var filteredEmails = [];
+                                    $scope.inputEmailErr = "";
+                                    for(var i = 0, l = emails.length; i < l; i++) {
+                                        if(!validateEmail(emails[i])){
+                                            $scope.inputEmailErr = 'email "' +emails[i] + '" not looks like valid email address';
+                                            var error = true;
+                                        }
+                                    }
+                                }
+                                if(!$scope.email.subject) {
+                                    var error = true;
+                                    $scope.inputSubjectErr = "Please enter subject";
+                                } else {
+                                    $scope.inputSubjectErr = "";
+                                }
+                                if(error) return;
+                                $scope.email.content = $("#email-content").html();
+                                console.log($scope.email);
                             };
                             $scope.close = function() {
                                 console.log("close");
@@ -150,14 +181,11 @@
                     });
 
                     modalInstance.result
-                        .then(function (password) {
-                            $scope.passwordError = '';
-                            $scope.submitted = false;
-                            uploadService.setPasswordForFile(file.fileId, password);
-                            file.password = password;
+                        .then(function () {
+                            console.log("result");
                         })
                         .catch(function () {
-                            //console.log("here");
+                            console.log("catch");
                         });
 
                 }

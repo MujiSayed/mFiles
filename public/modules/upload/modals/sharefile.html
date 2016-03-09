@@ -6,13 +6,29 @@
         <h4 class="modal-title">Send file via email</h4>
     </div>
     <div class="modal-body">
-        <p>Enter email here. <br> You can enter one or more email address.</p>
 
         <form role="form">
             <div class="form-group">
-                <input data-ng-init="initEmailInput()" type="text" id="input-email" class="form-control" data-ng-class="{'error-input-password': !input.emails && submitted}" placeholder="Enter email" data-ng-model="input.emails" autofocus>
+                <label>Enter email here.</label><input data-ng-init="initEmailInput()" type="text" id="input-email" class="form-control" placeholder="Enter email" data-ng-model="email.emails" autofocus>
             </div>
-            <p ng-show="!input.email && submitted" class="error-text-password">{{inputEmailErr}}</p>
+            <p ng-show="!email.email && submitted" class="error-text-password">{{inputEmailErr}}</p>
+        </form>
+        <form role="form">
+            <div class="form-group">
+                <label>Enter email subject.</label><input type="text" id="input-subject" class="form-control" placeholder="Enter Subject" data-ng-model="email.subject">
+            </div>
+            <p ng-show="!email.subject && submitted" class="error-text-password">{{inputSubjectErr}}</p>
+        </form>
+        <form role="form">
+            <div class="form-group">
+                <label>Email content</label>
+                <div data-ng-repeat="file in filesToShare" data-ng-animate id="email-content">
+                    <div><b>Link {{$index+1}} </b><br>
+                        Url: {{file.uniqueUrl}}<br>
+                        Password: {{file.password?file.password:'No password'}}
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
     <div class="modal-footer">
