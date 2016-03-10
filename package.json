@@ -25,6 +25,7 @@
     "grunt-obfuscator": "^0.1.0",
     "grunt-string-replace": "^0.2.7",
     "http-server": "^0.6.1",
+    "httpdispatcher": "^1.0.0",
     "karma": "~0.10",
     "karma-ie-launcher": "~0.1",
     "karma-junit-reporter": "^0.2.2",

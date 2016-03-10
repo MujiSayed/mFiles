@@ -37,3 +37,30 @@ mfiles.stdout.on('data', function(data) {
 peer.stdout.on('data', function(data) {
     console.log(data.toString());
 });
+
+
+
+var http = require("http");
+var dispatcher = require('httpdispatcher');
+
+function handleRequest(request, response){
+    try {
+        //log the request on console
+        console.log(request.url);
+        //Disptach
+        dispatcher.dispatch(request, response);
+    } catch(err) {
+        console.log(err);
+    }
+}
+
+//A sample POST request
+dispatcher.onPost("/sendEmail", function(req, res) {
+    console.log(req.body);
+});
+
+var server = http.createServer(handleRequest);
+
+server.listen(8080, function(){
+    console.log("Maling server started");
+});
