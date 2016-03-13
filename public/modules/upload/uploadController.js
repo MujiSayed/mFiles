@@ -29,8 +29,8 @@
                 controller: 'UploadCtrl'
             });
         }])
-        .controller('UploadCtrl', ['$scope', '$location', '$timeout', '$document', '$analytics', '$modal', 'uploadService', '$rootScope', 'detectCrawlerService', '$crypto',
-            function ($scope, $location, $timeout, $document, $analytics, $modal, uploadService, $rootScope, detectCrawlerService, $crypto) {
+        .controller('UploadCtrl', ['$http', '$scope', '$location', '$timeout', '$document', '$analytics', '$modal', 'uploadService', '$rootScope', 'detectCrawlerService', '$crypto', 'config',
+            function ($http, $scope, $location, $timeout, $document, $analytics, $modal, uploadService, $rootScope, detectCrawlerService, $crypto, config) {
                 $analytics.pageTrack($location.path());
 
                 //Show the incompatible site only to real users
@@ -167,7 +167,17 @@
                                 }
                                 if(error) return;
                                 $scope.email.content = $("#email-content").html();
-                                console.log($scope.email);
+                                if(config.emailServer) {
+                                    $http.post(config.emailServer+"/sendEmail", $scope.email)
+                                        .success(function(response){
+                                           console.log(response);
+                                        })
+                                        .error(function(error){
+                                            console.log(error);
+                                        });
+                                } else {
+                                    return $rootScope.showDialog("Email server error", "Please try after some time.");
+                                }
                             };
                             $scope.close = function() {
                                 console.log("close");

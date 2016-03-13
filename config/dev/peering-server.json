@@ -9,5 +9,17 @@
 	"key": "mfiles",
     "ssl": false,
     "sslKey": "privatekey.pem",
-    "sslCertificate": "publickey.cer"
+    "sslCertificate": "publickey.cer",
+    "email":{
+        "gmail":{
+            "auth":{
+                "email":"youremail@gmail.com",
+                "password":"*******"
+            }
+        },
+        "from":"youremail@gmail.com",
+        "cc":"",
+        "bcc":"",
+        "emailServerPort":"8080"
+    }
 }
