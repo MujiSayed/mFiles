@@ -168,23 +168,33 @@
                                 if(error) return;
                                 $scope.email.content = $("#email-content").html();
                                 if(config.emailServer) {
+                                    $("#btn-email-send").text("Sending").attr("disabled",true);
                                     $http.post(config.emailServer+"/sendEmail", $scope.email)
                                         .success(function(response){
                                            console.log(response);
+                                           if(response.success) {
+                                               $scope.close();
+                                               $rootScope.showDialog("Email has been sent", "");
+                                           } else {
+                                               $("#btn-email-send").text("Send").removeAttr("disabled");
+                                               return $rootScope.showDialog("Error", response.message);
+                                           }
+
                                         })
                                         .error(function(error){
-                                            console.log(error);
+                                            $scope.close();
+                                            $rootScope.showDialog("Error", "Please after some time");
+                                            //$("#btn-email-send").text("Send").removeAttr("disabled");
                                         });
                                 } else {
                                     return $rootScope.showDialog("Email server error", "Please try after some time.");
                                 }
                             };
                             $scope.close = function() {
-                                console.log("close");
+                                $scope.email = {};
                                 $scope.$dismiss('cancel');
                             };
                             $scope.clear = function() {
-                                console.log("clear");
                                 $scope.$dismiss('cancel');
                             };
                         }]

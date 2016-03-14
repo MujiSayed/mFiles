@@ -13,11 +13,11 @@
     "email":{
         "gmail":{
             "auth":{
-                "email":"youremail@gmail.com",
-                "password":"*******"
+                "email":"mail@gmail.com",
+                "password":"*****"
             }
         },
-        "from":"youremail@gmail.com",
+        "from":"Your Name<mail@gmail.com>",
         "cc":"",
         "bcc":"",
         "emailServerPort":"8080"

@@ -22,17 +22,19 @@
         <form role="form">
             <div class="form-group">
                 <label>Email content</label>
-                <div data-ng-repeat="file in filesToShare" data-ng-animate id="email-content">
-                    <div><b>Link {{$index+1}} </b><br>
-                        Url: {{file.uniqueUrl}}<br>
-                        Password: {{file.password?file.password:'No password'}}
+                <div id="email-content">
+                    <div data-ng-repeat="file in filesToShare" data-ng-animate>
+                        <div><b>Link {{$index+1}} </b><br>
+                            Url: {{file.uniqueUrl}}<br>
+                            Password: {{file.password?file.password:'No password'}}
+                        </div>
                     </div>
                 </div>
             </div>
         </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-ng-click="removePassword()">Cancel</button>
-        <button type="submit" class="btn btn-primary" data-ng-click="send()">Send</button>
+        <button type="button" class="btn btn-default" data-ng-click="close()">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="btn-email-send" data-ng-click="send()">Send</button>
     </div>
 </form>
