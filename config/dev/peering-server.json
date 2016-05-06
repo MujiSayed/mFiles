@@ -18,8 +18,6 @@
             }
         },
         "from":"Your Name<mail@gmail.com>",
-        "cc":"",
-        "bcc":"",
         "emailServerPort":"8080"
     }
 }

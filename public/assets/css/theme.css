@@ -7063,7 +7063,8 @@ a.tile:hover {
   font-size: 18.2px;
 }
 .section.section-primary {
-  background-image: linear-gradient(#dd4040 0%, #bd2222 100%);
+  background-image: linear-gradient(#dd4040 0%, #bd2222 10
+  0%);
 }
 .section.section-primary p {
   font-size: 24px;
@@ -7288,6 +7289,7 @@ a.tile:hover {
         font-size: 25px;
     }
     .close {
+
         margin-top: -40px;
     }
 }

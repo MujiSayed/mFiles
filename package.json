@@ -46,9 +46,10 @@
   "scripts": {
     "start-prod": "http-server dist -a localhost -p 8001 -c-1",
     "update": "npm install && bower install",
-    "start": "forever start main.js",
-    "prestart": "npm install && npm install forever -g",
-    "test": "karma start karma.conf.js"
+    "start": "node start.js",
+    "prestart": "npm install && npm install forever -g && npm stop",
+    "test": "karma start karma.conf.js",
+    "stop":"node shutdown.js"
   },
   "author": "",
   "license": "GPL v2",
