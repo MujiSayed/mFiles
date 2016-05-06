@@ -8,7 +8,7 @@ if(!config.host) {
 if(!config.sitePort) {
     logger.info("Please edit site host in /config/dev/peering-server.json");
 }
-var peer = exec('node src/peerserver.js', function(error, stdout, stderr) {
+var peer = exec('node src/peerserver.js', {maxBuffer:1024*1024*1024}, function(error, stdout, stderr) {
     console.log('stdout: ', stdout);
     if (error !== null) {
         console.log('exec error: ', error);
@@ -19,7 +19,7 @@ peer.on('message', function(message) {
     console.log(message);
 });
 
-var mfiles = exec('http-server -a ' + config.host + ' -p ' + config.sitePort + ' -c-1', function(error, stdout, stderr) {
+var mfiles = exec('http-server -a ' + config.host + ' -p ' + config.sitePort + ' -c-1',{maxBuffer:1024*1024*1024}, function(error, stdout, stderr) {
     console.log('stderr: ', stderr);
     if (error !== null) {
         console.log('exec error: ', error);
