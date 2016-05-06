@@ -16,6 +16,29 @@ mFiles ridiculously simple file sharing. With mFiles you can transfer files dire
 5. To start file transfer please visit http://localhost:8001/.
 6. If you close the browser after upload files and before download, Then it will not transfer to end user because mFiles used browse to browser sharing.
 
+edit the config file "config/dev/peering-server.js" and "publicconfig.js".
+make sure you are using free port.
+
+for email server:
+you may please set your gmail account to login via other application. here is link:
+https://support.google.com/accounts/answer/6010255?hl=en
+https://www.google.com/settings/security/lesssecureapps
+you need to "turn on" gmail.
+
+
+Please edit following in config\dev\peering-server.json file auth, from & emailServerPort(any free port)
+"emailServer" in public/config.json
+
+
+run:
+to start project run "npm start".
+
+if its not working it means some proccess already running.
+
+try to list node running file with command "ps aux | grep node"
+if any file running of mFile project you should kill by pid and try again.
+
+
 #Setting
 There is two setting file in project, You can edit these file as your's per uses.<br>
 <b>1. /config/peering-server.json</b>
