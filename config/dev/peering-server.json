@@ -1,5 +1,5 @@
 {
-	"host": "127.0.0.1",
+	"host": "168.235.91.233",
 	"sitePort": 8001,
   	"peerServerPort":9100,
 	"path": "/signaling",

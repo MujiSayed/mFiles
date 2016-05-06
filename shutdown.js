@@ -16,6 +16,10 @@ var stop = function() {
                     console.log("Stoping email server");
                     forever.stop(i);
                 }
+                if (process[i].file.indexOf("main.js") > 0) {
+                    console.log("Stoping main server");
+                    forever.stop(i);
+                }
             }
         }
 

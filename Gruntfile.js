@@ -179,7 +179,7 @@ module.exports = function(grunt) {
 					'dist/index.html': 'build/index.html'
 				}
 			}
-		}
+		},
 		clean: ['build', 'fingerprint']
 	});
 
