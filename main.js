@@ -8,7 +8,7 @@ if(!config.host) {
 if(!config.sitePort) {
     logger.info("Please edit site host in /config/dev/peering-server.json");
 }
-var peer = exec('node src/server.js', function(error, stdout, stderr) {
+var peer = exec('node src/peerserver.js', function(error, stdout, stderr) {
     console.log('stdout: ', stdout);
     if (error !== null) {
         console.log('exec error: ', error);
