@@ -1335,7 +1335,6 @@
 
         var httpProtocol = secure ? 'https://' : 'http://';
         var wsProtocol = secure ? 'wss://' : 'ws://';
-	var based = "127.0.0.1";
         this._httpUrl =  httpProtocol + location.hostname + ":" + port  + path + key;
         this._wsUrl = wsProtocol + location.hostname + ":" + port + path + 'peerjs?key=' + key;
     }
